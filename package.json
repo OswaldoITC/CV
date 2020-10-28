@@ -1,0 +1,31 @@
+{
+  "name": "cv",
+  "version": "1.0.0",
+  "description": "Curriculum vitae",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OswaldoITC/CV.git"
+  },
+  "author": "Omar Osvaldo Hernandez Diaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OswaldoITC/CV/issues"
+  },
+  "homepage": "https://github.com/OswaldoITC/CV#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bootstrap": "^4.5.3",
+    "express": "^4.17.1",
+    "express-generator": "^4.16.1",
+    "jquery": "^3.5.1",
+    "mariadb": "^2.5.1",
+    "popper.js": "^1.16.1",
+    "pug": "^3.0.0",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {}
+}

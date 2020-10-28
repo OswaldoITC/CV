@@ -1,0 +1,113 @@
+<!--Omar Osvaldo Hernandez Diaz - CV-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/grid/">
+    <title>Mi CV</title>
+</head>
+<body style="background-color:rgb(172, 172, 172)">
+    <div id="app" style="background-color:rgb(172, 172, 172)">
+        <!--Datos personales-->
+        <h1> {{nombre}} </h1>
+        <h4> {{ universidad }} </h4>
+        <!--Alinear imagen con datos personales en una fila-->
+        <div class="row" style="background-color:#ccc">
+            <div class="col-sm-2">
+                <img src="https://scontent.fntr6-1.fna.fbcdn.net/v/t1.0-9/75439519_2478988502222204_2869368483957702656_n.jpg?_nc_cat=111&ccb=2&_nc_sid=174925&_nc_ohc=Fy2_rQ0VcgYAX-Ftlic&_nc_ht=scontent.fntr6-1.fna&oh=5cbcf2f15bc9093860e3cdd25761261c&oe=5FBDAD30" class="card-img-top" alt="Perrito">
+            </div> 
+            <div class="col-sm-6">
+                <dl class="row" v-for="dato of datosContacto">
+                    <dt class="col-sm-1" style="text-align: left; vertical-align: middle;"> {{ dato.descripcion }} </dt>
+                    <dd class="col-sm-11"> {{ dato.dato }} </dd>
+                </dl>
+            </div>
+            <!--Lenguajes-->
+            <div class="col-sm-4">
+                Software y lenguajes
+                <dl class="row" v-for="dato of lenguajes">
+                    <dt class="col-sm-4" style="text-align: left; vertical-align: middle;"> {{ dato.nombre }} </dt>
+                    <dd class="col-sm-8"> {{ dato.porcentaje }} </dd>
+                </dl>
+            </div>
+        </div>
+        <!--Fin datos personales-->
+
+        <!--Experiencia profesional, educación y cursos-->
+        <!--Nav-->
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <li class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Experiencia</li>
+              <li class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Educación</li>
+              <li class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Cursos y Diplomas</li>
+            </div>
+          </nav>
+          <!--div para el contenido del nav-->
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <li v-for="dato of experiencia">{{dato}}</li>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <li v-for="dato of educación">{{dato}}</li>
+            </div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <li v-for="dato of cursos">{{dato}}</li>
+            </div>
+          </div>
+    </div>
+
+<!--Vuejs y script vue, para los datos-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                nombre: 'Omar Osvaldo Hernández Díaz',
+                universidad: 'Instituto Tecnológico y de Estudios Superiores de Monterrey',
+                datosContacto: [
+                    {descripcion: 'Cel.', dato: '8184611837'},
+                    {descripcion: 'Mail.', dato: 'A00821286@itesm.mx'},
+                    {descripcion: 'Li.', dato: 'www.linkedin.com/in/osvaldo-itc'},
+                    {descripcion: 'Blog.', dato: 'lideresdelmanana.itesm.mx/users/omar-osvaldo-hernandez'}],
+                experiencia: [
+                    'Desarrollador web  - Amigo Abroad (Ago-Dic 2018)',
+                    'Apoyo administrativo – Secretaría municipal en San Pedro Garza García (2015).',
+                    'Administrador de Cibercafé (2014)'
+                ],
+                educación: [
+                    'Ingeniero en Tecnologías Computacionales (2016-2021) – Tec de Monterrey',
+                    'Técnico en programación (2013-2016) – CETis 66'
+                ],
+                cursos: [
+                    'Diplomado en Ética empresarial - Perfil Profesional y Gerencial. VALIA.',
+                    'Instructor en Chic@s code – Talleres de programación a secundarias',
+                    'Instructor en México Rural - Proyecto en Linares, Nuevo León',
+                    'Certificación primer respondiente - Secretaría de Salud Pública, Ternium y Solvay.',
+                    'Festival Académico Nacional - Representante de Nuevo León en Física',
+                    'Diploma “Líder del mañana” - Beca 100% Tecnológico de Monterrey',
+                    'Prototipos para la AEM (Agencia Espacial Mexicana) en temática aeroespacial 2.0',
+                    'Space boot camp de innovación espacial y área inteligente.',
+                    'Certificación en tecnologías Microsoft para la productividad'
+                ],
+                lenguajes: [
+                    {nombre: 'C++.', porcentaje: '75'},
+                    {nombre: 'C#.', porcentaje: '40'},
+                    {nombre: 'VueJs.', porcentaje: '30'},
+                    {nombre: 'Swift.', porcentaje: '20'}
+                    ]
+            }
+        })
+    </script>
+    <!--Scripts bootstrap-->
+     <!-- Si utilizamos componentes de Bootstrap que requieran Javascript agregar estos tres archivos -->
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+</body>
+</html>
